@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/martingraf4/StyleGAN2-Interactive-Webclient/master/server/schemas/export_schema.json",
+    "type": "object",
+    "title": "StyleGAN2 Interactive Webclient - Export Settings",
+    "description": "Specify export settings for being able to run the frontend without a backend.",
+    "required": [
+        "generators",
+        "evaluators",
+        "target"
+    ],
+    "properties": {
+        "target": {
+            "type": "string",
+            "title": "Target folder",
+            "description": "A path (relative to this file) to the folder where the app should be exported to",
+            "examples": [
+                "../resources/exported"
+            ]
+        },
+        "stepSize": {
+            "type": "number",
+            "title": "Step size",
+            "description": "All styles will be rounded to this step size.",
+            "examples": [
+                0.1
+            ]
+        },
+        "evaluators": {
+            "type": "array",
+            "title": "Evaluators",
+            "description": "Ratings for all these evaluators (by evaluator ids) will be exported.",
+            "items": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "additionalItems": false
+        },
+        "generators": {
+            "type": "array",
+            "title": "Generators",
+            "description": "Images for all possible style configurations of these generators (by generator id) will be exported.",
+            "items": {
+                "type": "integer",
+                "minimum": 1
+            },
+            "additionalItems": false
+        }
+    },
+    "additionalProperties": false
+}

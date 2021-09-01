@@ -1,0 +1,23 @@
+{
+    "evaluators": {
+        "3000": {
+            "name": "Celeb Smile",
+            "model_class": "ResNet18",
+            "model_file": "../resources/evaluators/celeb-smile/discriminator.pt",
+            "width": 256,
+            "height": 256
+        }
+    },
+    "generators": {
+        "2": {
+            "name": "StyleGAN2 official - ffhq",
+            "model_class": "StyleGAN2Official",
+            "model_file": "../resources/generators/ffhq/ffhq.pkl",
+            "width": 1024,
+            "height": 1024,
+            "layer_count": 18,
+            "settings": "../resources/generators/ffhq/settings.json",
+            "batch_size": 4
+        }
+    }
+}

@@ -1,0 +1,133 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/martingraf4/StyleGAN2-Interactive-Webclient/master/server/schemas/models_schema.json",
+    "type": "object",
+    "title": "StyleGAN2 Interactive Webclient - Models",
+    "description": "Specifies the available generators and evaluators.",
+    "required": [
+        "evaluators",
+        "generators"
+    ],
+    "properties": {
+        "evaluators": {
+            "type": "object",
+            "title": "Evaluators",
+            "patternProperties": {
+                "^[1-9][0-9]*$": {
+                    "title": "Evaluator",
+                    "$ref": "#/definitions/model"
+                }
+            },
+            "additionalProperties": false
+        },
+        "generators": {
+            "type": "object",
+            "title": "Generators",
+            "patternProperties": {
+                "^[1-9][0-9]*$": {
+                    "title": "Generator",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/model"
+                        },
+                        {
+                            "properties": {
+                                "layer_count": {
+                                    "type": "integer",
+                                    "title": "Layer Count",
+                                    "description": "The number of layers this model has",
+                                    "examples": [
+                                        7
+                                    ]
+                                },
+                                "settings": {
+                                    "type": "string",
+                                    "title": "Path to settings",
+                                    "description": "A path (relative to this file) with the settings of this generator (conforming to the generator_settings_schema.json). May be overwritten by the application.",
+                                    "examples": [
+                                        "../resources/generators/dogs_vs_cats/settings.json"
+                                    ]
+                                },
+                                "batch_size": {
+                                    "type": "integer",
+                                    "title": "Maximum batch size",
+                                    "description": "Maximum amount of images generated at the same time",
+                                    "examples": [
+                                        4
+                                    ],
+                                    "minimum": 1
+                                }
+                            },
+                            "required": [
+                                "layer_count",
+                                "settings",
+                                "batch_size"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "model": {
+            "$id": "#/definitions/model",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "title": "Name",
+                    "description": "Human readable model name",
+                    "examples": [
+                        "StyleGAN2 - Dogs vs. Cats",
+                        "ResNet18 - Dogs vs. Cats"
+                    ]
+                },
+                "model_class": {
+                    "type": "string",
+                    "title": "Model Class",
+                    "description": "Exact name of the python class wrapping the model (own classes can be added by subclassing the GeneratorBackend/EvaluatorBackend classes)",
+                    "examples": [
+                        "StyleGAN2",
+                        "ResNet18"
+                    ],
+                    "pattern": "^[a-zA-Z_0-9]+$"
+                },
+                "model_file": {
+                    "type": "string",
+                    "title": "Model File",
+                    "description": "Path (absolute or relative to this file) passed to the model class to load the trained model from",
+                    "examples": [
+                        "../resources/generators/dogs_vs_cats/model_1196.pt",
+                        "../resources/evaluators/dogs_vs_cats/res18.pth"
+                    ]
+                },
+                "width": {
+                    "type": "integer",
+                    "title": "Width of the generated / evaluated image",
+                    "minimum": 1,
+                    "examples": [
+                        256
+                    ]
+                },
+                "height": {
+                    "type": "integer",
+                    "title": "Height of the generated / evaluated image",
+                    "minimum": 1,
+                    "examples": [
+                        256
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "model_class",
+                "model_file",
+                "width",
+                "height"
+            ]
+        }
+    }
+}

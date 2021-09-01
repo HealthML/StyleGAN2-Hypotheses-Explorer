@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/martingraf4/StyleGAN2-Interactive-Webclient/master/server/schemas/generator_settings_schema.json",
+    "type": "object",
+    "title": "StyleGAN2 Interactive Webclient - Generator Settings",
+    "description": "Configure a generator. Can be changed via the web interface.",
+    "properties": {
+        "numGenStylesPerLayer": {
+            "title": "Number of generated styles per layer",
+            "type": "integer",
+            "examples": [
+                3
+            ],
+            "minimum": 2
+        },
+        "useSameStylesForAllLayers": {
+            "title": "Use same styles for all layers",
+            "type": "boolean",
+            "examples": [
+                true,
+                false
+            ],
+            "description": "If true the style images per layer will look the same"
+        },
+        "reduceNumberOfLayersBy": {
+            "title": "Reduce number of layers by",
+            "type": "integer",
+            "examples": [
+                3
+            ],
+            "description": "Reducing the number of layers groups together layers in the view. e.g. if 2 layers are reduced the first and second displayed layer will actually be the first and second, and the third and fourth layers.",
+            "minimum": 0
+        },
+        "stylesFromImages": {
+            "title": "If present the generated styles will create images similar to these images. The images are stored in base64 encoding.",
+            "type": [
+                "array",
+                "null"
+            ],
+            "items": {
+                "type": "string"
+            }
+        },
+        "optimizeStyles": {
+            "title": "Intelligently generate styles",
+            "description": "If not existent the styles will be generated randomly. If existent it is interpreted as evaluation model id. The styles will be randomly generated and then optimized to one end of the evaluator ratings.",
+            "anyOf": [
+                {
+                    "type": "number",
+                    "examples": [
+                        3
+                    ],
+                    "minimum": 1
+                },
+                {
+                    "type": "null"
+                }
+            ]
+        }
+    },
+    "required": [
+        "numGenStylesPerLayer",
+        "useSameStylesForAllLayers",
+        "reduceNumberOfLayersBy"
+    ],
+    "additionalProperties": false
+}

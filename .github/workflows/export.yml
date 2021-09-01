@@ -1,0 +1,23 @@
+name: Export
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    name: Export
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+        working-directory: client
+      - run: npm run export
+        working-directory: client
+      - uses: actions/upload-artifact@v2
+        with:
+          name: SSR
+          path: client/__sapper__/export
