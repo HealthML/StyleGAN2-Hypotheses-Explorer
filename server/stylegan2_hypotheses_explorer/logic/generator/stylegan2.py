@@ -27,7 +27,7 @@ from .generator_backend import GeneratorBackend
 from .projection import project
 
 INTELLIGENT_STYLE_GEN_ITERATIONS = 25
-PROJECTION_STEPS = 10
+PROJECTION_STEPS = 1000
 # RESIZE_IMAGES = False
 RESIZE_IMAGES = 256
 

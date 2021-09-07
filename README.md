@@ -2,7 +2,8 @@
 
 ![Build](https://github.com/martingraf4/StyleGAN2-Hypotheses-Explorer/workflows/Export/badge.svg?branch=master)
 
-The StyleGAN2 Hypotheses Explorer allows to form and test hypotheses about what distinguishes two classes of objects. Its intent is to help researchers discover differences between different kinds of diseases and to enable them to judge which case it is just by looking at images.
+This repository implements the StyleGAN2 Hypotheses Explorer, a framework to interactively explore an image classifier's decision boundary. 
+
 
 ## Setup
 
