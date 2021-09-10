@@ -23,6 +23,9 @@ Note that the [original NVIDIA implementation](#setup) of the StyleGAN2 is requi
 
 If you decide to upload and reconstruct images, the reconstruction will usually take a couple of minutes.
 
+### FairFace Networks
+In the paper we also investigate the [FairFace](https://github.com/dchen236/FairFace/) network. To setup, download [their trained models](https://drive.google.com/drive/folders/1B2gAnEpJ6oC9sMkcwS8v5Wk8PtHycHOV), use the `res34_fair_align_multi_720190809.pt` file, and follow the instructions above regarding file location and `models.json`.
+
 ## Run
 
 1. Activate the `stylegan2_hypotheses_explorer` environment via `conda activate stylegan2_hypotheses_explorer`
