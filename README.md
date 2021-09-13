@@ -1,8 +1,8 @@
 # StyleGAN2 Hypotheses Explorer
 
-![Build](https://github.com/healthml/StyleGAN2-Hypotheses-Explorer/workflows/Export/badge.svg?branch=master)
+[//]: # ![Build](https://github.com/healthml/StyleGAN2-Hypotheses-Explorer/workflows/Export/badge.svg?branch=master)
 
-This repository implements the StyleGAN2 Hypotheses Explorer, a framework to interactively explore an image classifier's decision boundary. 
+This repository implements the StyleGAN2 Hypotheses Explorer, a framework to interactively explore an image classifier's decision boundary. This project is associated with our paper [Explainability Requires Interactivity](). For training of networks and other stuff from the paper, consider the [sister repo](https://github.com/HealthML/explainability-requires-interactivity).
 
 
 ## Setup
