@@ -1,6 +1,6 @@
 # StyleGAN2 Hypotheses Explorer
 
-![Build](https://github.com/martingraf4/StyleGAN2-Hypotheses-Explorer/workflows/Export/badge.svg?branch=master)
+![Build](https://github.com/healthml/StyleGAN2-Hypotheses-Explorer/workflows/Export/badge.svg?branch=master)
 
 This repository implements the StyleGAN2 Hypotheses Explorer, a framework to interactively explore an image classifier's decision boundary. 
 

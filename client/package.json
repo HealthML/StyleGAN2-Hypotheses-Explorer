@@ -1,5 +1,5 @@
 {
-  "name": "lucid-torch-webclient",
+  "name": "stylegan2-hypotheses-explorer-webclient",
   "version": "1.0.0",
   "scripts": {
     "dev": "sapper dev",
